@@ -1,17 +1,20 @@
+import { Header } from "./common/components/Header/Header";
 import { CharacterPage } from "./pages/CharacterPage/CharacterPage";
-import { EpisodesPage } from "./pages/EpisodesPage/EpisodesPage";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { LocationPage } from "./pages/LocationPage/LocationPage";
-import { Header } from "./common/components/Header/Header";
+import { EpisodePage } from "./pages/EpisodesPage/EpisodePage";
+import { Route, Routes } from "react-router";
 
 function App() {
   return (
     <div>
       <Header />
-      <HomePage />
-      <CharacterPage />
-      <EpisodesPage />
-      <LocationPage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/characters" element={<CharacterPage />} />
+        <Route path="/locations" element={<LocationPage />} />
+        <Route path="/episodes" element={<EpisodePage />} />
+      </Routes>
     </div>
   );
 }
