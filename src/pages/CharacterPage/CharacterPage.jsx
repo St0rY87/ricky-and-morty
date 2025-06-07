@@ -1,3 +1,5 @@
+// import s from "./CharacterPage.module.css";
+
 export const CharacterPage = () => {
-  return <h1>The Character Page</h1>;
+  return <h1 className={"pageTitle"}>The Character Page</h1>;
 };

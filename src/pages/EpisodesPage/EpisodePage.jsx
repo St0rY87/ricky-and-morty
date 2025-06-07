@@ -1,7 +1,7 @@
 export const EpisodePage = () => {
   return (
     <>
-      <h1>The Episode Page</h1>
+      <h1 className={"pageTitle"}>The Episode Page</h1>
     </>
   );
 };
