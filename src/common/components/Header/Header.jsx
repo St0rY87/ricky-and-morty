@@ -1,18 +1,27 @@
 import { NavLink } from "react-router";
 import logo from "../../../assets/img/logo.png";
+import s from "./Header.module.css";
 
 export const Header = () => {
   return (
-    <div>
+    <div className={s.container}>
       <NavLink to="/">
-        <img src={logo} alt="logo" />
+        <img className={s.logo} src={logo} alt="logo" />
       </NavLink>
 
       <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/characters">Characters</NavLink>
-        <NavLink to="/locations">Locations</NavLink>
-        <NavLink to="/episodes">Episodes</NavLink>
+        <NavLink className={s.headerLink} to="/">
+          Home
+        </NavLink>
+        <NavLink className={s.headerLink} to="/characters">
+          Characters
+        </NavLink>
+        <NavLink className={s.headerLink} to="/locations">
+          Locations
+        </NavLink>
+        <NavLink className={s.headerLink} to="/episodes">
+          Episodes
+        </NavLink>
       </nav>
     </div>
   );
