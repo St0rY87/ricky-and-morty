@@ -2,3 +2,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
