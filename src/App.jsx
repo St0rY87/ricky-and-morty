@@ -1,5 +1,5 @@
 import { Header } from "./common/components/Header/Header";
-import { CharacterPage } from "./pages/CharacterPage/CharacterPage";
+import { CharactersPage } from "./pages/CharactersPage/CharactersPage";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { LocationPage } from "./pages/LocationPage/LocationPage";
 import { EpisodePage } from "./pages/EpisodesPage/EpisodePage";
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/characters" element={<CharacterPage />} />
+        <Route path="/characters" element={<CharactersPage />} />
         <Route path="/locations" element={<LocationPage />} />
         <Route path="/episodes" element={<EpisodePage />} />
       </Routes>

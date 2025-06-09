@@ -1,11 +1,9 @@
-// import s from "./CharacterPage.module.css";
-
 import { useEffect, useState } from "react";
 import axios from "axios";
-import s from "./CharacterPage.module.css";
+import s from "./CharactersPage.module.css";
 import { Character } from "../../common/components/Character/Character";
 
-export const CharacterPage = () => {
+export const CharactersPage = () => {
   const [characters, setCharacters] = useState([]);
   const [error, setError] = useState(null);
 
