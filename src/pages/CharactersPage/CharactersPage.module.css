@@ -18,3 +18,9 @@
   margin: 20px 0 30px 10px;
   width: calc(100% - 60px);
 }
+
+.charactersPage {
+}
+.charactersPage.pageCharacter svg {
+  margin-top: 15%;
+}

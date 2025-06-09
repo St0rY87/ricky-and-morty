@@ -3,10 +3,13 @@ import axios from "axios";
 import s from "./CharactersPage.module.css";
 import { Character } from "../../common/components/Character/Character";
 import { Link } from "react-router";
+import { Spinner } from "../../common/components/Spinner/Spinner";
 
 export const CharactersPage = () => {
   const [characters, setCharacters] = useState([]);
   const [error, setError] = useState(null);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const [info, setInfo] = useState({
     count: 0,
@@ -16,6 +19,7 @@ export const CharactersPage = () => {
   });
 
   const fetchData = (url) => {
+    setIsLoading(true);
     axios
       .get(url)
       .then((res) => {
@@ -25,7 +29,8 @@ export const CharactersPage = () => {
       })
       .catch((err) => {
         setError(err.response.data.error);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {
@@ -46,43 +51,49 @@ export const CharactersPage = () => {
   };
 
   return (
-    <div className={"pageContainer"}>
-      <h1 className={"pageTitle"}>CharacterPage</h1>
+    <div className={`pageContainer ${s.charactersPage}`}>
+      <h1 className={"pageTitle"}>Characters Page</h1>
       <input
         type="search"
         className={s.search}
         onChange={searchHandler}
         placeholder="Search..."
       />
-      {error && <div className="errorMessage">{error}</div>}
-      {!error && characters.length && (
-        <div>
-          {
-            <div className={s.characters}>
-              {characters.map((character) => (
-                <Character character={character} key={character.id} />
-              ))}
+
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          {error && <div className="errorMessage">{error}</div>}
+          {!error && characters.length && (
+            <div>
+              {
+                <div className={s.characters}>
+                  {characters.map((character) => (
+                    <Character character={character} key={character.id} />
+                  ))}
+                </div>
+              }
+              <div className={s.buttonContainer}>
+                <button
+                  disabled={info.prev === null}
+                  className="linkButton"
+                  onClick={previousPageHandler}
+                >
+                  Назад
+                </button>
+
+                <button
+                  disabled={info.next === null}
+                  className="linkButton"
+                  onClick={nextPageHandler}
+                >
+                  Вперед
+                </button>
+              </div>
             </div>
-          }
-
-          <div className={s.buttonContainer}>
-            <button
-              disabled={info.prev === null}
-              className="linkButton"
-              onClick={previousPageHandler}
-            >
-              Назад
-            </button>
-
-            <button
-              disabled={info.next === null}
-              className="linkButton"
-              onClick={nextPageHandler}
-            >
-              Вперед
-            </button>
-          </div>
-        </div>
+          )}
+        </>
       )}
     </div>
   );
