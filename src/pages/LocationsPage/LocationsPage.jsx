@@ -20,7 +20,7 @@ export const LocationsPage = () => {
 
   return (
     <div className="pageContainer">
-      <h1 className={"pageTitle"}>Location Page</h1>
+      <h1 className={"pageTitle"}>Locations Page</h1>
       {isLoading ? (
         <Spinner />
       ) : (
