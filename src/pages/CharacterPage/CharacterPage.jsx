@@ -7,6 +7,7 @@ import { Character } from "../../common/components/Character/Character";
 
 export const CharacterPage = () => {
   const [characters, setCharacters] = useState([]);
+  const [error, setError] = useState(null);
 
   const [info, setInfo] = useState({
     count: 0,
@@ -16,10 +17,16 @@ export const CharacterPage = () => {
   });
 
   const fetchData = (url) => {
-    axios.get(url).then((res) => {
-      setCharacters(res.data.results);
-      setInfo(res.data.info);
-    });
+    axios
+      .get(url)
+      .then((res) => {
+        setCharacters(res.data.results);
+        setInfo(res.data.info);
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err.response.data.error);
+      });
   };
 
   useEffect(() => {
@@ -48,7 +55,8 @@ export const CharacterPage = () => {
         onChange={searchHandler}
         placeholder="Search..."
       />
-      {characters.length && (
+      {error && <div className="errorMessage">{error}</div>}
+      {!error && characters.length && (
         <div>
           {
             <div className={s.characters}>
