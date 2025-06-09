@@ -4,6 +4,11 @@
   width: 300px;
   background-color: var(--slate-700);
   border-radius: 5px;
+  text-decoration: none;
+  transition: 0.2s ease-in;
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .characterLink {
@@ -13,8 +18,4 @@
   margin-bottom: 10px;
   display: block;
   text-align: center;
-
-  &:hover {
-    text-decoration: none;
-  }
 }

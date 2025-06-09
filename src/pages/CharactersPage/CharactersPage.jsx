@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import s from "./CharactersPage.module.css";
 import { Character } from "../../common/components/Character/Character";
+import { Link } from "react-router";
 
 export const CharactersPage = () => {
   const [characters, setCharacters] = useState([]);
