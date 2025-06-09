@@ -3,6 +3,9 @@ import logo from "../../../assets/img/logo.png";
 import s from "./Header.module.css";
 
 export const Header = () => {
+  const navLinkClass = ({ isActive }) =>
+    isActive ? `${s.headerLink} ${s.active}` : s.headerLink;
+
   return (
     <div className={s.container}>
       <NavLink to="/">
@@ -10,16 +13,16 @@ export const Header = () => {
       </NavLink>
 
       <nav>
-        <NavLink className={s.headerLink} to="/">
+        <NavLink className={navLinkClass} to="/">
           Home
         </NavLink>
-        <NavLink className={s.headerLink} to="/characters">
+        <NavLink className={navLinkClass} to="/characters">
           Characters
         </NavLink>
-        <NavLink className={s.headerLink} to="/locations">
+        <NavLink className={navLinkClass} to="/locations">
           Locations
         </NavLink>
-        <NavLink className={s.headerLink} to="/episodes">
+        <NavLink className={navLinkClass} to="/episodes">
           Episodes
         </NavLink>
       </nav>

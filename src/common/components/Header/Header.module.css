@@ -21,3 +21,7 @@
     text-decoration: none;
   }
 }
+
+.headerLink.active {
+  font-weight: 700;
+}
