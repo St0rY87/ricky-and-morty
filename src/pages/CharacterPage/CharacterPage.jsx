@@ -34,9 +34,20 @@ export const CharacterPage = () => {
     fetchData(info.prev);
   };
 
+  const searchHandler = (e) => {
+    const value = e.currentTarget.value;
+    fetchData(`https://rickandmortyapi.com/api/character?name=${value}`);
+  };
+
   return (
     <div className={"pageContainer"}>
       <h1 className={"pageTitle"}>CharacterPage</h1>
+      <input
+        type="search"
+        className={s.search}
+        onChange={searchHandler}
+        placeholder="Search..."
+      />
       {characters.length && (
         <div>
           {
