@@ -41,6 +41,7 @@ body {
   text-align: center;
   border-radius: 5px;
   border: 2px solid var(--slate-800);
+  transition: 0.3s ease-in-out;
 
   &:hover {
     color: var(--slate-800);
